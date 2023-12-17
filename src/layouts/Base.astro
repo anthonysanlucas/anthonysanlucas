@@ -1,0 +1,69 @@
+---
+import HeaderPage from '@/components/HeaderPage.astro'
+import FooterPage from '@/components/FooterPage.astro'
+
+interface Props {
+  currentUrl: string
+  titlePage: string
+  descriptionPage: string
+}
+
+const { titlePage, descriptionPage, currentUrl } = Astro.props
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{titlePage}</title>
+    <meta name="title" content={titlePage} />
+    <meta name="description" content={descriptionPage} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content=`https://anthonysanlucas.ugdevs.org/${currentUrl ?? null}` />
+    <meta property="og:title" content={titlePage} />
+    <meta property="og:description" content={descriptionPage} />
+    <meta
+      property="og:image"
+      content="https://i.postimg.cc/K8K38fMw/anthonysanlucas-software-developer.png"
+    />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:url"
+      content=`https://anthonysanlucas.ugdevs.org/${currentUrl ?? null}`
+    />
+    <meta property="twitter:title" content={titlePage} />
+    <meta property="twitter:description" content={descriptionPage} />
+    <meta
+      property="twitter:image"
+      content="https://i.postimg.cc/K8K38fMw/anthonysanlucas-software-developer.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    class="mx-auto max-w-screen-lg w-full px-4 text-neutral-50 bg-neutral-950 bg-gradient-to-tr from-neutral-950 to-black min-h-screen">
+    <HeaderPage />
+    <main>
+      <slot />
+    </main>
+    <FooterPage />
+  </body>
+</html>
+
+<script>
+  const TITLE_PAGE = document.title
+
+  window.onblur = () => {
+    document.title = 'Hasta pronto 👋'
+  }
+
+  window.onfocus = () => {
+    document.title = TITLE_PAGE
+  }
+</script>

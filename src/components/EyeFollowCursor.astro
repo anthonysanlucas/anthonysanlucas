@@ -1,0 +1,20 @@
+<div
+  class="bg-neutral-50 inline-block rounded-full relative overflow-hidden w-16 h-8 border border-neutral-950">
+  <span
+    id="eye-ball"
+    class="w-5 h-5 bg-neutral-50 absolute rounded-full top-1/2 left-1/2 translate-x-1/2 translate-y-1/2 border-[7px] border-neutral-950">
+  </span>
+</div>
+
+<script>
+  const eyeBall = document.getElementById('eye-ball')
+
+  document.onmousemove = function (e) {
+    let x = (e.clientX * 100) / window.innerWidth + '%'
+    let y = (e.clientY * 100) / window.innerHeight + '%'
+
+    eyeBall.style.left = x
+    eyeBall.style.top = y
+    eyeBall.style.transform = 'translate(-' + x + ',-' + y + ')'
+  }
+</script>

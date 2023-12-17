@@ -1,0 +1,54 @@
+---
+import EyeFollowCursor from '@/components/EyeFollowCursor.astro'
+import HeroText from '@/components/home/HeroText.astro'
+
+const tags = [
+  {
+    text: 'Landing Page',
+    textColor: 'text-purple-500',
+    bgColor: 'bg-purple-500/10'
+  },
+  {
+    text: 'Ecommerce',
+    textColor: 'text-green-500',
+    bgColor: 'bg-green-500/10'
+  },
+  {
+    text: 'Blog',
+    textColor: 'text-orange-500',
+    bgColor: 'bg-orange-500/10'
+  },
+  {
+    text: 'Web App',
+    textColor: 'text-sky-500',
+    bgColor: 'bg-sky-500/10'
+  },
+  {
+    text: 'Mobile App',
+    textColor: 'text-purple-500',
+    bgColor: 'bg-purple-500/10'
+  },
+  {
+    text: 'AI',
+    textColor: 'text-green-500',
+    bgColor: 'bg-green-500/10'
+  }
+]
+---
+
+<section class="flex flex-col justify-center items-center gap-10 min-h-[calc(100vh-8rem)]">
+  <EyeFollowCursor />
+  <article>
+    <HeroText />
+    <div class="mt-6 flex flex-wrap justify-center text-center gap-2">
+      {
+        tags.map(tag => (
+          <p
+            class={`text-xs p-2 font-normal rounded-full ${tag.bgColor} ${tag.textColor} sm:text-sm`}>
+            {tag.text}
+          </p>
+        ))
+      }
+    </div>
+  </article>
+</section>
