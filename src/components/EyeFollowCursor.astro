@@ -9,10 +9,22 @@
 <script>
   const eyeBall = document.getElementById('eye-ball')
 
-  document.onmousemove = function (e) {
-    let x = (e.clientX * 100) / window.innerWidth + '%'
-    let y = (e.clientY * 100) / window.innerHeight + '%'
+  setEyeBallPosition('50%', '50%')
 
+  document.onmousemove = function (e) {
+    let [x, y] = getMousePosition(e.clientX, e.clientY)
+
+    setEyeBallPosition(x, y)
+  }
+
+  const getMousePosition = (horizontal, vertical) => {
+    let x = (horizontal * 100) / window.innerWidth + '%'
+    let y = (vertical * 100) / window.innerHeight + '%'
+
+    return [x, y]
+  }
+
+  function setEyeBallPosition(x, y) {
     eyeBall.style.left = x
     eyeBall.style.top = y
     eyeBall.style.transform = 'translate(-' + x + ',-' + y + ')'
