@@ -1,54 +1,24 @@
----
-import EyeFollowCursor from '@/components/EyeFollowCursor.astro'
-import HeroText from '@/components/home/HeroText.astro'
-
-const tags = [
-  {
-    text: 'Landing Page',
-    textColor: 'text-purple-500',
-    bgColor: 'bg-purple-500/10'
-  },
-  {
-    text: 'Ecommerce',
-    textColor: 'text-green-500',
-    bgColor: 'bg-green-500/10'
-  },
-  {
-    text: 'Blog',
-    textColor: 'text-orange-500',
-    bgColor: 'bg-orange-500/10'
-  },
-  {
-    text: 'Web App',
-    textColor: 'text-sky-500',
-    bgColor: 'bg-sky-500/10'
-  },
-  {
-    text: 'Mobile App',
-    textColor: 'text-purple-500',
-    bgColor: 'bg-purple-500/10'
-  },
-  {
-    text: 'AI',
-    textColor: 'text-green-500',
-    bgColor: 'bg-green-500/10'
-  }
-]
----
-
-<section class="flex flex-col justify-center items-center gap-10 min-h-[calc(100vh-8rem)]">
-  <EyeFollowCursor />
-  <article>
-    <HeroText />
-    <div class="mt-6 flex flex-wrap justify-center text-center gap-2">
-      {
-        tags.map(tag => (
-          <p
-            class={`text-xs p-2 font-normal rounded-full ${tag.bgColor} ${tag.textColor} sm:text-sm`}>
-            {tag.text}
-          </p>
-        ))
-      }
+<section class="flex flex-col justify-center items-center gap-10 min-h-[85vh] sm:min-h-[70vh]">
+  <article class="flex flex-col justify-center items-start gap-x-4 sm:flex-row gap-y-4">
+    <img class="max-w-[6rem]" src="/images/anthonysanlucas.webp" alt="Foto Anthony San Lucas" />
+    <div>
+      <h1 class="text-3xl sm:text-5xl font-bold text-balance text-white/90 mb-2">
+        Anthony San Lucas
+      </h1>
+      <h2 class="mb-4 text-xl font-medium text-white/70">Desarrollador de Software</h2>
+      <p class="text-sm text-balance leading-8 font-light max-w-lg text-white/80 sm:text-base">
+        En el último año he creado soluciones centradas en el usuario
+        <span
+          class="text-xs p-1 font-normal rounded-md bg-purple-500/10 text-purple-500 sm:text-sm">
+          UX/UI</span
+        >&nbsp;y productos empresariales utilizando
+        <span class="text-xs p-1 font-normal rounded-md bg-green-500/10 text-green-500 sm:text-sm">
+          tecnologías</span
+        >&nbsp;de desarrollo
+        <span class="text-xs p-1 font-normal rounded-md bg-sky-500/10 text-sky-500 sm:text-sm">
+          modernas.
+        </span>
+      </p>
     </div>
   </article>
 </section>

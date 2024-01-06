@@ -1,0 +1,86 @@
+---
+import BentoCaseItem from './BentoCaseItem.astro'
+import MobileTag from '@/components/techTags/MobileTag.astro'
+import WebTag from '@/components/techTags/WebTag.astro'
+import AstroTag from '@/components/techTags/AstroTag.astro'
+import GitHubTag from '@/components/techTags/GitHubTag.astro'
+import ReactTag from '@/components/techTags/ReactTag.astro'
+import TailwindTag from '@/components/techTags/TailwindTag.astro'
+import DotNetTag from '@/components/techTags/DotNetTag.astro'
+import BemCssTag from '@/components/techTags/BemCssTag.astro'
+---
+
+<section class="grid min-h-[37.5rem] gap-4 grid-rows-5 md:grid-rows-6 md:grid-cols-10">
+  <BentoCaseItem
+    class="col-span-10 md:row-span-6 md:col-span-4 min-h-[450px]"
+    title="1800 Mi Bosch">
+    <div slot="techTags" class="flex flex-wrap gap-2">
+      <MobileTag />
+      <DotNetTag />
+    </div>
+  </BentoCaseItem>
+  <BentoCaseItem class="col-span-10 md:row-span-3 md:col-span-3" title="UG Devs">
+    <div
+      slot="image"
+      class="absolute left-0 top-0 bottom-0 w-full
+        h-full group-hover:scale-110 transition-scale duration-1000
+        ease-in-out opacity-90 bg-blend-luminosity bg-contain bg-center bg-no-repeat -z-10 sm:bg-cover"
+      style="background-image: url('/images/ugdevs.png')">
+    </div>
+
+    <div slot="techTags" class="flex flex-wrap gap-2">
+      <WebTag />
+      <AstroTag />
+      <GitHubTag />
+      <ReactTag />
+      <TailwindTag />
+    </div>
+  </BentoCaseItem>
+  <BentoCaseItem class="col-span-10 md:row-span-4 md:col-span-3" title="Eventos Guayaquil Tech">
+    <div
+      slot="image"
+      class="absolute left-0 top-0 bottom-0 w-full
+        h-full group-hover:scale-110 transition-scale duration-1000
+        ease-in-out opacity-90 bg-blend-luminosity bg-contain bg-center bg-no-repeat -z-10 sm:bg-cover"
+      style="background-image: url('/images/eventosGuayaquilTech.png')">
+    </div>
+
+    <div slot="techTags" class="flex flex-wrap gap-2">
+      <WebTag />
+      <AstroTag />
+      <GitHubTag />
+      <TailwindTag />
+    </div>
+  </BentoCaseItem>
+  <BentoCaseItem class="col-span-10 md:row-span-3 md:col-span-3" title="Ferrara">
+    <div
+      slot="image"
+      class="absolute left-0 top-0 bottom-0 w-full
+        h-full group-hover:scale-110 transition-scale duration-1000
+        ease-in-out opacity-90 bg-blend-luminosity bg-contain bg-center bg-no-repeat -z-10 sm:bg-cover"
+      style="background-image: url('/images/ferrara.png')">
+    </div>
+
+    <div slot="techTags" class="flex flex-wrap gap-2">
+      <WebTag />
+      <AstroTag />
+      <TailwindTag />
+    </div>
+  </BentoCaseItem>
+  <BentoCaseItem class="col-span-10 md:row-span-2 md:col-span-3" title="Fort Club">
+    <div
+      slot="image"
+      class="absolute left-0 top-0 bottom-0 w-full
+        h-full group-hover:scale-110 transition-scale duration-1000
+        ease-in-out opacity-90 bg-blend-luminosity bg-contain bg-center bg-no-repeat -z-10 sm:bg-cover"
+      style="background-image: url('/images/fortclub.webp')">
+    </div>
+
+    <div slot="techTags" class="flex flex-wrap gap-2">
+      <WebTag />
+      <AstroTag />
+      <BemCssTag />
+    </div>
+  </BentoCaseItem>
+</section>
+<p class="text-right text-white/70 font-medium mt-10">Próximamente más casos de estudio...</p>
