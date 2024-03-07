@@ -14,6 +14,13 @@ import BemCssTag from '@/components/techTags/BemCssTag.astro'
   <BentoCaseItem
     class="col-span-10 md:row-span-6 md:col-span-4 min-h-[450px]"
     title="1800 Mi Bosch">
+    <div
+      slot="image"
+      class="absolute left-0 top-0 bottom-0 w-full
+        h-full group-hover:scale-110 transition-scale duration-1000
+        ease-in-out opacity-90 bg-blend-luminosity bg-center bg-no-repeat -z-10 bg-cover bg-[url('/images/bosch-ec-lg.webp')] lg:bg-[url('/images/bosch-ec-lg.webp')]">
+    </div>
+
     <div slot="techTags" class="flex flex-wrap gap-2">
       <MobileTag />
       <DotNetTag />
