@@ -12,7 +12,11 @@ export default {
         orange: '#F7941D',
         'orange-light': '#FFF6EC',
         green: '#A5C330',
-        pink: '#ED7DB1'
+        'green-light': '#F1F7D1',
+        pink: '#ED7DB1',
+        'pink-light': '#FFF9FC',
+        turquoise: '#0F857F',
+        'turquoise-light': '#E7FFFE'
       }
     }
   },
