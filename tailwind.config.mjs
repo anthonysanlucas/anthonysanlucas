@@ -4,7 +4,15 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Poppins', 'sans-serif']
+        sans: ['Inter', 'sans-serif']
+      },
+      colors: {
+        primary: '#1A7290',
+        'primary-light': '#EAF7FC',
+        orange: '#F7941D',
+        'orange-light': '#FFF6EC',
+        green: '#A5C330',
+        pink: '#ED7DB1'
       }
     }
   },

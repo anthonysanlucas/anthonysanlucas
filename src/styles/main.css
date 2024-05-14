@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .section-container {
+    @apply max-w-screen-xl mx-auto px-4 lg:px-10;
+  }
+
+  .page-title {
+    @apply text-4xl text-black-dark text-balance leading-[1.2] font-bold lg:leading-[1.2] lg:text-5xl;
+  }
+
+  .section-title-small {
+    @apply text-base text-black-light text-balance font-semibold text-center uppercase;
+  }
+
+  .main-btn {
+    @apply block text-center font-medium mt-10 lg:mx-0 py-4 px-8 rounded-sm shadow-md transition-colors;
+  }
+}
