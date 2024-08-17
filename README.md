@@ -1,1 +1,1 @@
-## 👋 Bienvenido. ¿Tienes alguna pregunta? No dudes en contactarme.
+## 👋 Bienvenido, no dudes en contactarme.
