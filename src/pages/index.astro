@@ -13,3 +13,20 @@ import BentoCaseStudies from '@/components/home/BentoCaseStudies.astro'
   </div><Hero />
   <BentoCaseStudies />
 </Base>
+
+<script is:inline>
+// Obtener el dominio raíz dinámicamente
+const domainParts = location.hostname.split('.');
+const baseDomain = domainParts.slice(-2).join('.'); // Obtiene los últimos dos elementos del dominio
+
+// Crear la cookie con el dominio correcto
+document.cookie = "token=abcd123; domain=." + baseDomain + "; path=/; SameSite=None; Secure";
+
+// Leer todas las cookies disponibles
+let cookieValue = document.cookie;
+
+// Mostrar todas las cookies en la consola
+console.log('cookieValue:', cookieValue);
+
+
+</script>
