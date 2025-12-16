@@ -1,8 +1,8 @@
 ---
 import Base from '@/layouts/Base.astro'
 import Me from '@/components/home/Me.astro'
-import ProjectsSection from '@/components/ProjectsSection.astro'
 import Section from '@/components/Section.astro'
+import ProjectCard from '@/components/ProjectCard.astro'
 
 const organizations = [
   { name: 'Tecnova', src: '/images/organizations/tecnova.svg' },
@@ -11,6 +11,33 @@ const organizations = [
   { name: 'Fortclub', src: '/images/organizations/fortclub.svg' },
   { name: 'Naturisa', src: '/images/organizations/naturisa.svg' },
   { name: 'Jobsa', src: '/images/organizations/jobsa.svg' }
+]
+
+const projects = [
+  {
+    title: 'Memmorable',
+    subtitle: 'Invitaciones digitales hermosas y fáciles de usar',
+    domain: 'memmorable.com',
+    href: 'https://memmorable.com',
+    logoUrl: '/images/logos/ellie.png',
+    imageUrl: '/images/previews/ellie.png'
+  },
+  {
+    title: 'De Platos',
+    subtitle: 'Menús increíbles para restaurantes',
+    domain: 'deplatos.com',
+    href: 'https://deplatos.com',
+    logoUrl: '/images/logos/lily.png',
+    imageUrl: '/images/previews/lily.png'
+  },
+  {
+    title: 'Calculadora UG',
+    subtitle: 'Simulador de Calificaciones Universidad Guayaquil',
+    domain: 'mogulnetworking.com',
+    href: 'https://mogulnetworking.com',
+    logoUrl: '/images/logos/mogul.png',
+    imageUrl: '/images/previews/mogul.png'
+  }
 ]
 ---
 
@@ -22,10 +49,16 @@ const organizations = [
     class="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]">
   </div>
 
-  <section class="flex flex-col lg:flex-row justify-start items-center lg:items-start py-16">
+  <section class="flex flex-col lg:flex-row lg:items-start py-16">
     <Me />
-    <section>
-      <ProjectsSection />
+
+    <section class="w-full lg:ml-12">
+      <Section title="Mis Aplicaciones" icon="🚀">
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {projects.map(p => <ProjectCard {...p} />)}
+        </div>
+      </Section>
+
       <Section title="Empresas y organizaciones con las que he trabajado" icon="🏢">
         <article class="flex flex-wrap items-center justify-start gap-4 sm:gap-6">
           {
