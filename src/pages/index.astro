@@ -1,7 +1,17 @@
 ---
 import Base from '@/layouts/Base.astro'
-import Hero from '@/components/home/Hero.astro'
-import BentoCaseStudies from '@/components/home/BentoCaseStudies.astro'
+import Me from '@/components/home/Me.astro'
+import ProjectsSection from '@/components/ProjectsSection.astro'
+import Section from '@/components/Section.astro'
+
+const organizations = [
+  { name: 'Tecnova', src: '/images/organizations/tecnova.svg' },
+  { name: 'Masapp', src: '/images/organizations/masapp.svg' },
+  { name: 'Ferrara', src: '/images/organizations/ferrara.svg' },
+  { name: 'Fortclub', src: '/images/organizations/fortclub.svg' },
+  { name: 'Naturisa', src: '/images/organizations/naturisa.svg' },
+  { name: 'Jobsa', src: '/images/organizations/jobsa.svg' }
+]
 ---
 
 <Base
@@ -9,24 +19,78 @@ import BentoCaseStudies from '@/components/home/BentoCaseStudies.astro'
   descriptionPage="🚀 Desarrollador de Software - Web / Móvil | Tecnologías de la Información | Ecuador / Guayaquil"
   currentUrl="">
   <div
-    class="fixed inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_50%,#082f49_100%)]">
-  </div><Hero />
-  <BentoCaseStudies />
+    class="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]">
+  </div>
+
+  <section class="flex flex-col lg:flex-row justify-start items-center lg:items-start py-16">
+    <Me />
+    <section>
+      <ProjectsSection />
+      <Section title="Empresas y organizaciones con las que he trabajado" icon="🏢">
+        <article class="flex flex-wrap items-center justify-start gap-4 sm:gap-6">
+          {
+            organizations.map(org => (
+              <div
+                class="flex h-20 w-40 items-center justify-center rounded-xl border border-gray-200 bg-white px-4 shadow-sm transition
+               grayscale opacity-70 hover:grayscale-0 hover:opacity-100 hover:bg-slate-50"
+                title={org.name}>
+                <img
+                  src={org.src}
+                  alt={`Logo de ${org.name}`}
+                  class="h-8 w-full object-contain"
+                  loading="lazy"
+                />
+              </div>
+            ))
+          }
+        </article>
+      </Section>
+
+      <Section title="Información de contacto" icon="📬">
+        <article class="flex flex-wrap justify-start gap-6">
+          <a
+            href="mailto:asanlucas@gmail.com"
+            class="group flex w-full max-w-xs items-center gap-4 rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition hover:bg-slate-50 sm:w-[420px]">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-gray-100 text-xl">
+              <img
+                src="/images/social/gmail.svg"
+                alt="Icono de correo electrónico"
+                class="h-6 w-6"
+                loading="lazy"
+              />
+            </div>
+
+            <div class="min-w-0">
+              <p class="text-sm font-semibold text-gray-900">Correo electrónico</p>
+              <p class="truncate text-sm text-gray-500 group-hover:text-gray-700">
+                asanlucas@gmail.com
+              </p>
+            </div>
+          </a>
+
+          <a
+            href="https://linkedin.com/in/anthonysanlucas"
+            target="_blank"
+            rel="noreferrer"
+            class="group flex w-full max-w-xs items-center gap-4 rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition hover:bg-slate-50 sm:w-[420px]">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-gray-100 text-xl">
+              <img
+                src="/images/social/linkedin.svg"
+                alt="Icono de LinkedIn"
+                class="h-6 w-6"
+                loading="lazy"
+              />
+            </div>
+
+            <div class="min-w-0">
+              <p class="text-sm font-semibold text-gray-900">LinkedIn</p>
+              <p class="truncate text-sm text-gray-500 group-hover:text-gray-700">
+                linkedin.com/in/anthonysanlucas
+              </p>
+            </div>
+          </a>
+        </article>
+      </Section>
+    </section>
+  </section>
 </Base>
-
-<script is:inline>
-// Obtener el dominio raíz dinámicamente
-const domainParts = location.hostname.split('.');
-const baseDomain = domainParts.slice(-2).join('.'); // Obtiene los últimos dos elementos del dominio
-
-// Crear la cookie con el dominio correcto
-document.cookie = "token=abcd123; domain=." + baseDomain + "; path=/; SameSite=None; Secure";
-
-// Leer todas las cookies disponibles
-let cookieValue = document.cookie;
-
-// Mostrar todas las cookies en la consola
-console.log('cookieValue:', cookieValue);
-
-
-</script>

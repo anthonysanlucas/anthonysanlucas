@@ -1,7 +1,4 @@
 ---
-import HeaderPage from '@/components/HeaderPage.astro'
-import FooterPage from '@/components/FooterPage.astro'
-
 interface Props {
   currentUrl: string
   titlePage: string
@@ -46,13 +43,14 @@ const { titlePage, descriptionPage, currentUrl } = Astro.props
       rel="stylesheet"
     />
   </head>
-  <body
-    class="mx-auto max-w-screen-xl w-full px-4 text-neutral-50 bg-neutral-950 bg-gradient-to-tr from-neutral-950 to-black min-h-screen">
-    <HeaderPage />
-    <main>
+  <body>
+    <div
+      class="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]">
+    </div>
+    <main
+      class="mx-auto relative max-w-screen-xl h-full w-full px-4 text-neutral-50 bg-gradient-to-tr to-white min-h-screen">
       <slot />
     </main>
-    <FooterPage />
   </body>
 </html>
 
