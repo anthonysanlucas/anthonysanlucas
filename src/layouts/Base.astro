@@ -18,7 +18,7 @@ const { titlePage, descriptionPage, currentUrl } = Astro.props
     <meta name="title" content={titlePage} />
     <meta name="description" content={descriptionPage} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content=`https://anthonysanlucas.ugdevs.org/${currentUrl ?? null}` />
+    <meta property="og:url" content={`https://asanlucas.com/${currentUrl ?? ''}`} />
     <meta property="og:title" content={titlePage} />
     <meta property="og:description" content={descriptionPage} />
     <meta
@@ -26,10 +26,7 @@ const { titlePage, descriptionPage, currentUrl } = Astro.props
       content="https://i.postimg.cc/K8K38fMw/anthonysanlucas-software-developer.png"
     />
     <meta property="twitter:card" content="summary_large_image" />
-    <meta
-      property="twitter:url"
-      content=`https://anthonysanlucas.ugdevs.org/${currentUrl ?? null}`
-    />
+    <meta property="twitter:url" content={`https://asanlucas.com/${currentUrl ?? ''}`} />
     <meta property="twitter:title" content={titlePage} />
     <meta property="twitter:description" content={descriptionPage} />
     <meta
