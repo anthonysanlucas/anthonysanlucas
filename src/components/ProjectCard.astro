@@ -61,9 +61,8 @@ const { title, subtitle, domain, href, logoUrl, imageUrl, isSkeleton = false } =
       target="_blank"
       rel="noreferrer"
       class="group block rounded-2xl border border-gray-200 bg-white shadow-sm transition hover:bg-slate-50">
-      <div class="flex items-stretch justify-between gap-3 p-4 sm:gap-4 sm:p-5">
-        <!-- Left -->
-        <div class="min-w-0 flex-1">
+      <section class="flex items-stretch justify-between gap-3 p-4 sm:gap-4 sm:p-5">        
+        <article class="min-w-0 flex-1">
           <div class="flex items-start gap-3">
             <div
               class="mt-0.5 h-10 w-10 shrink-0 overflow-hidden rounded-full border border-gray-200 bg-gray-50">
@@ -86,9 +85,9 @@ const { title, subtitle, domain, href, logoUrl, imageUrl, isSkeleton = false } =
               </span>
             </div>
           </div>
-        </div>
+        </article>
         
-        <div class="relative h-16 w-28 shrink-0 overflow-hidden rounded-xl border border-gray-200 bg-gray-100 sm:h-20 sm:w-36">
+        <article class="relative h-16 w-28 shrink-0 overflow-hidden rounded-xl border border-gray-200 bg-gray-100 sm:h-20 sm:w-36">
           <img
             src={imageUrl}
             alt={`${title} preview`}
@@ -96,8 +95,8 @@ const { title, subtitle, domain, href, logoUrl, imageUrl, isSkeleton = false } =
             loading="lazy"
           />
           <div class="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/5"></div>
-        </div>
-      </div>
+        </article>
+      </section>
     </a>
   )
 }
