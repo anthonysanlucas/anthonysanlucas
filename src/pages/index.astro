@@ -10,8 +10,7 @@ const organizations = [
   { name: 'Ferrara', src: '/images/organizations/ferrara.svg' },
   { name: 'Fortclub', src: '/images/organizations/fortclub.svg' },
   { name: 'Jobsa', src: '/images/organizations/jobsa.svg' },
-  { name: 'Naturisa', src: '/images/organizations/naturisa.svg' },
-  { name: 'Gyetech', src: '/images/organizations/gyetech.webp' }
+  { name: 'Naturisa', src: '/images/organizations/naturisa.svg' }
 ]
 
 const projects = [
@@ -25,17 +24,18 @@ const projects = [
   },
   {
     title: 'De Platos',
-    subtitle: 'Menús increíbles para restaurantes',
-    domain: 'deplatos.com',
-    href: 'https://deplatos.com',
+    subtitle: 'En desarrollo',
+    domain: 'proximamente',
+    href: '',
     logoUrl: '/images/logos/lily.png',
-    imageUrl: '/images/previews/lily.png'
+    imageUrl: '/images/previews/lily.png',
+    isSkeleton: true
   },
   {
     title: 'Calculadora UG',
     subtitle: 'Simulador de Calificaciones Universidad Guayaquil',
-    domain: 'mogulnetworking.com',
-    href: 'https://mogulnetworking.com',
+    domain: 'calculadoraug.com',
+    href: 'https://calculadoraug.asanlucas.com',
     logoUrl: '/images/logos/mogul.png',
     imageUrl: '/images/previews/mogul.png'
   }
@@ -50,23 +50,22 @@ const projects = [
     class="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]">
   </div>
 
-  <section class="flex flex-col lg:flex-row lg:items-start py-16">
+  <section class="flex flex-col lg:flex-row lg:items-start pb-16">
     <Me />
 
     <section class="w-full lg:ml-12">
       <Section title="Mis Aplicaciones" icon="🚀">
-        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div class="grid grid-cols-1 gap-4">
           {projects.map(p => <ProjectCard {...p} />)}
         </div>
       </Section>
 
-      <Section title="Empresas y organizaciones con las que he trabajado" icon="🏢">
+      <Section title="Empresas y organizaciones con las que he colaborado" icon="🏢">
         <article class="flex flex-wrap items-center justify-start gap-4 sm:gap-6">
           {
             organizations.map(org => (
               <div
-                class="flex h-20 w-40 items-center justify-center rounded-xl border border-gray-200 bg-white px-4 shadow-sm transition
-               grayscale opacity-70 hover:grayscale-0 hover:opacity-100 hover:bg-slate-50"
+                class="flex h-20 w-40 items-center justify-center rounded-xl border border-gray-200 bg-white px-4 shadow-sm transition hover:bg-slate-50"
                 title={org.name}>
                 <img
                   src={org.src}
