@@ -9,93 +9,42 @@ type Props = {
   isSkeleton?: boolean
 }
 
-const { title, subtitle, domain, href, logoUrl, imageUrl, isSkeleton = false } = Astro.props
+const { title, subtitle, domain, href, logoUrl, imageUrl } = Astro.props
 ---
 
-{
-  isSkeleton ? (
-    <div
-      class="rounded-2xl border border-dashed border-gray-200 bg-white shadow-sm">
-      <div class="flex items-stretch justify-between gap-3 p-4 sm:gap-4 sm:p-5">
-        <!-- Left -->
-        <div class="min-w-0 flex-1">
-          <div class="flex items-start gap-3">
-            <div
-              class="mt-0.5 h-10 w-10 shrink-0 overflow-hidden rounded-full border border-gray-200 bg-gray-50">
-              <img
-                src={logoUrl}
-                alt={`${title} logo`}
-                class="h-full w-full object-cover text-black/60"
-                loading="lazy"
-              />
-            </div>
-
-            <div class="min-w-0 space-y-1.5">
-              <div class="min-w-0">
-                <p class="text-sm font-semibold leading-5 text-gray-900">{title}</p>
-                <p class="text-xs leading-4 text-gray-500">{subtitle}</p>
-              </div>
-              <span
-                class="inline-flex max-w-full items-center rounded-full border border-gray-200 bg-gray-50 px-2 py-0.5 text-[11px] font-medium text-gray-500">
-                <span class="truncate">{domain}</span>
-              </span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="relative h-16 w-28 shrink-0 overflow-hidden rounded-xl bg-white p-1 sm:h-20 sm:w-36">
+<article class="rounded-2xl border border-dashed border-gray-200 bg-white shadow-sm">
+  <div class="flex items-stretch justify-between gap-3 p-4 sm:gap-4 sm:p-5">
+    <!-- Left -->
+    <section class="min-w-0 flex-1">
+      <div class="flex items-start gap-3">
+        <div
+          class="mt-0.5 h-10 w-10 shrink-0 overflow-hidden rounded-full border border-gray-200 bg-gray-50">
           <img
-            src={imageUrl}
-            alt={`${title} preview`}
-            class="h-full w-full object-contain opacity-60 grayscale"
+            src={logoUrl}
+            alt={`${title} logo`}
+            class="h-full w-full object-cover text-black/60"
             loading="lazy"
           />
-          <div class="absolute inset-0 bg-gradient-to-br from-white/10 via-white/30 to-white/10"></div>
-          <div class="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/5"></div>
+        </div>
+
+        <div class="min-w-0 space-y-1.5">
+          <div class="min-w-0">
+            <p class="text-sm font-semibold leading-5 text-gray-900">{title}</p>
+            <p class="text-xs leading-4 text-gray-500">{subtitle}</p>
+          </div>
+          <span
+            class="inline-flex max-w-full items-center rounded-full border border-gray-200 bg-gray-50 px-2 py-0.5 text-[11px] font-medium text-gray-500">
+            <span class="truncate">{domain}</span>
+          </span>
         </div>
       </div>
-    </div>
-  ) : (
-    <a
-      href={href}
-      target="_blank"
-      rel="noreferrer"
-      class="group block rounded-2xl border border-gray-200 bg-white shadow-sm transition hover:bg-slate-50">
-      <section class="flex items-stretch justify-between gap-3 p-4 sm:gap-4 sm:p-5">        
-        <article class="min-w-0 flex-1">
-          <div class="flex items-start gap-3">
-            <div
-              class="mt-0.5 h-10 w-10 shrink-0 overflow-hidden rounded-full border border-gray-200 bg-gray-50">
-              <img
-                src={logoUrl}
-                alt={`${title} logo`}
-                class="h-full w-full object-cover"
-                loading="lazy"
-              />
-            </div>
+    </section>
 
-            <div class="min-w-0 space-y-1.5">
-              <div class="min-w-0">
-                <p class="text-sm font-semibold leading-5 text-gray-900">{title}</p>
-                <p class="text-xs leading-4 text-gray-500">{subtitle}</p>
-              </div>
-              <span
-                class="inline-flex max-w-full items-center rounded-full border border-gray-200 bg-gray-50 px-2 py-0.5 text-[11px] font-medium text-gray-500">
-                <span class="truncate">{domain}</span>
-              </span>
-            </div>
-          </div>
-        </article>
-        
-        <article class="relative h-16 w-28 shrink-0 overflow-hidden rounded-xl border border-gray-200 p-1 sm:h-20 sm:w-36">
-          <img
-            src={imageUrl}
-            alt={`${title} preview`}
-            class="h-full w-full object-contain object-center rounded-xl transition duration-300 group-hover:scale-[1.03]"
-            loading="lazy"
-          />          
-        </article>
-      </section>
-    </a>
-  )
-}
+    <img
+      src={imageUrl}
+      alt={`${title} preview`}
+      class="relative h-16 w-28 shrink-0 overflow-hidden rounded-xl border border-gray-200/90 bg-slate-100 sm:h-20 sm:w-36 object-cover object-top opacity-60 grayscale"
+      loading="lazy"
+    />
+  </div>
+</article>
