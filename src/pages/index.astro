@@ -1,6 +1,7 @@
 ---
 import Base from '@/layouts/Base.astro'
 import Me from '@/components/home/Me.astro'
+import ContactInfo from '@/components/home/ContactInfo'
 import Section from '@/components/Section.astro'
 import ProjectCard from '@/components/ProjectCard.astro'
 
@@ -80,50 +81,8 @@ const projects = [
         </article>
       </Section>
 
-      <Section title="Información de contacto" icon="📬">
-        <article class="grid grid-cols-1 gap-6 md:grid-cols-2">
-          <a
-            href="mailto:asanlucasc@gmail.com"
-            class="group flex w-full items-center gap-4 rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition hover:bg-slate-50">
-            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-gray-100 text-xl">
-              <img
-                src="/images/social/gmail.svg"
-                alt="Icono de correo electrónico"
-                class="h-6 w-6"
-                loading="lazy"
-              />
-            </div>
-
-            <div class="min-w-0">
-              <p class="text-sm font-semibold text-gray-900">Correo electrónico</p>
-              <p class="truncate text-sm text-gray-500 group-hover:text-gray-700">
-                asanlucasc@gmail.com
-              </p>
-            </div>
-          </a>
-
-          <a
-            href="https://linkedin.com/in/anthonysanlucas"
-            target="_blank"
-            rel="noreferrer"
-            class="group flex w-full items-center gap-4 rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition hover:bg-slate-50">
-            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-gray-100 text-xl">
-              <img
-                src="/images/social/linkedin.svg"
-                alt="Icono de LinkedIn"
-                class="h-6 w-6"
-                loading="lazy"
-              />
-            </div>
-
-            <div class="min-w-0">
-              <p class="text-sm font-semibold text-gray-900">LinkedIn</p>
-              <p class="truncate text-sm text-gray-500 group-hover:text-gray-700">
-                linkedin.com/in/anthonysanlucas
-              </p>
-            </div>
-          </a>
-        </article>
+      <Section title={'Informaci\u00f3n de contacto'} icon="📬">
+        <ContactInfo client:idle />
       </Section>
     </section>
   </section>
