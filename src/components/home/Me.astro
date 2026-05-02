@@ -1,55 +1,40 @@
+---
+import Contact from './Contact'
+---
+
 <section
   class="flex w-full flex-col items-start justify-start gap-10 px-4 py-10 sm:px-6 lg:sticky lg:top-0 lg:w-[360px] lg:shrink-0">
   <img
     class="sr-only"
     src="/images/anthonysanlucas.webp"
-    alt="Foto Anthony San Lucas - Desarrollo de Sitios Web y Aplicaciones M&oacute;viles"
+    alt="Foto Anthony San Lucas - Desarrollo de Sitios Web y Aplicaciones Móviles"
   />
   <img
     class="max-w-[10rem] rounded-md"
     src="/images/anthonysanlucas-software-ti-desarrollador-programador.webp"
-    alt="Foto Anthony San Lucas - Desarrollo de Sitios Web y Aplicaciones M&oacute;viles"
+    alt="Foto Anthony San Lucas - Desarrollo de Sitios Web y Aplicaciones Móviles"
   />
 
   <article class="flex flex-col items-start justify-center gap-y-4 sm:flex-row sm:gap-x-4">
     <div>
-      <h1 class="mb-2 text-2xl font-bold text-balance text-black/90 sm:text-4xl">Anthony San Lucas</h1>
+      <h1 class="mb-2 text-2xl font-bold text-balance text-gray-900 sm:text-4xl">
+        Anthony San Lucas
+      </h1>
       <h2 class="sr-only mb-4 text-xl font-medium text-white/70">
         Desarrollador de Software Ecuador - Guayaquil
       </h2>
-      <h2 class="mb-4 max-w-lg text-balance text-sm font-light text-black/80 sm:text-base">
+      <h2 class="mb-4 max-w-lg text-balance text-sm font-light text-gray-700 sm:text-base">
         Hola &#128075;
       </h2>
 
-      <p class="max-w-sm text-balance text-sm font-light leading-7 text-black/80 sm:text-base">
+      <p class="max-w-sm text-balance text-sm font-light leading-7 text-gray-700 sm:text-base">
         Me dedico a crear soluciones centradas en el usuario
         <span class="text-purple-500"> UX/UI</span>&nbsp;y productos empresariales utilizando
         <span class="text-green-500"> tecnolog&iacute;as</span>&nbsp;de desarrollo
         <span class="text-sky-500"> modernas. </span>
       </p>
 
-      <section class="mt-6 w-full max-w-sm border-t border-gray-200/80 pt-5">
-        <h3 class="text-sm font-semibold text-gray-900 sm:text-base">
-          &iquest;Tienes una idea o proyecto?
-        </h3>
-        <p class="mt-2 text-sm leading-6 text-gray-500">
-          Cu&eacute;ntame qu&eacute; necesitas y lo convertimos en una soluci&oacute;n funcional.
-        </p>
-
-        <a
-          href="mailto:asanlucasc@gmail.com"
-          class="mt-4 inline-flex h-9 w-full items-center justify-center rounded-lg bg-gray-900 px-4 text-sm font-medium text-white transition hover:bg-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-300">
-          Cont&aacute;ctame
-        </a>
-
-        <a
-          href="https://wa.me/593XXXXXXXXX?text=Hola%20Anthony,%20tengo%20un%20proyecto%20en%20mente"
-          target="_blank"
-          rel="noreferrer"
-          class="mt-2 inline-flex text-xs text-gray-500 transition hover:text-gray-700 sm:text-sm">
-          o escr&iacute;beme por WhatsApp
-        </a>
-      </section>
+      <Contact />
     </div>
   </article>
 </section>

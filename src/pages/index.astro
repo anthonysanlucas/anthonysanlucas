@@ -56,12 +56,6 @@ const projects = [
     <Me />
 
     <section class="w-full lg:ml-12">
-      <Section title="Mis Aplicaciones" icon="🚀">
-        <div class="grid grid-cols-1 gap-4">
-          {projects.map(p => <ProjectCard {...p} />)}
-        </div>
-      </Section>
-
       <Section title="Empresas y organizaciones con las que he colaborado" icon="🏢">
         <article class="flex flex-wrap items-center justify-start gap-4 sm:gap-6">
           {
@@ -81,7 +75,13 @@ const projects = [
         </article>
       </Section>
 
-      <Section title={'Informaci\u00f3n de contacto'} icon="📬">
+      <Section title="Mis Aplicaciones" icon="🚀">
+        <div class="grid grid-cols-1 gap-4">
+          {projects.map(p => <ProjectCard {...p} />)}
+        </div>
+      </Section>
+
+      <Section title={'Información de contacto'} icon="📬">
         <ContactInfo client:idle />
       </Section>
     </section>
