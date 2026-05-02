@@ -23,7 +23,7 @@ export default function Contact() {
           href="https://wa.me/593982694256?text=Hola%20Anthony,%20tengo%20un%20proyecto%20y%20quiero%20desarrollarlo%20contigo."
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-1.5 text-xs text-gray-500 transition hover:text-gray-700 sm:text-sm">
+          className="inline-flex items-center gap-1.5 text-sm text-gray-500 transition hover:text-gray-700">
           o escríbeme por WhatsApp
         </a>
       </div>
