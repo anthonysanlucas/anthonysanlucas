@@ -17,6 +17,15 @@ const organizations = [
 
 const projects = [
   {
+    title: 'Deplatos: Invitaciones Digitales',
+    subtitle: 'Gestiona tu evento mediante invitaciones digitales ',
+    secretTitle: 'Deplatos - Mejores Invitaciones Digitales para Eventos',
+    domain: 'deplatos.com',
+    href: 'https://deplatos.com',
+    logoUrl: '/images/projects/deplatos_favicon.svg',
+    imageUrl: '/images/projects/deplatos.png'
+  },
+  {
     title: 'Memmorable: Invitaciones Digitales',
     subtitle: 'Gestiona tu evento mediante invitaciones digitales ',
     secretTitle: 'Memmorable - Mejores Invitaciones Digitales para Eventos',
@@ -59,6 +68,12 @@ const projects = [
     <Me />
 
     <section class="w-full lg:ml-12">
+       <Section title="Mis Aplicaciones" icon="🚀">
+        <div class="grid grid-cols-1 gap-4">
+          {projects.map(p => <ProjectCard {...p} />)}
+        </div>
+      </Section>
+      
       <Section title="Empresas y organizaciones con las que he colaborado" icon="🏢">
         <article class="flex flex-wrap items-center justify-start gap-4 sm:gap-6">
           {
@@ -76,12 +91,6 @@ const projects = [
             ))
           }
         </article>
-      </Section>
-
-      <Section title="Mis Aplicaciones" icon="🚀">
-        <div class="grid grid-cols-1 gap-4">
-          {projects.map(p => <ProjectCard {...p} />)}
-        </div>
       </Section>
 
       <Section title={'Información de contacto'} icon="📬">
