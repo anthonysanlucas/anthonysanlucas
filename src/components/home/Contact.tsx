@@ -8,7 +8,7 @@ export default function Contact() {
         <h3 className="text-sm font-semibold sm:text-base">¿Tienes una idea o proyecto?</h3>
       </header>
       <p className="mt-2 text-sm leading-6 text-gray-500">
-        Cuéntame qué necesitas y lo convertimos en una solución real.
+        Cuéntame qué necesitas y lo hacemos realidad.
       </p>
 
       <div className="mt-4 flex flex-col items-start gap-2">
