@@ -7,7 +7,7 @@ export default function Contact() {
         <SparklesIcon className="size-4 animate-pulse" />
         <h3 className="text-sm font-semibold sm:text-base">¿Tienes una idea o proyecto?</h3>
       </header>
-      <p className="mt-2 text-sm leading-6 text-gray-500">
+      <p className="mt-2 text-sm leading-6 text-gray-500 sr-only sm:not-sr-only">
         Cuéntame qué necesitas y lo hacemos realidad.
       </p>
 
