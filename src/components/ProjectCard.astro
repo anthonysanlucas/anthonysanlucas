@@ -8,132 +8,100 @@ type Props = {
   logoUrl?: string
   imageUrl?: string
   isSkeleton?: boolean
-  badge?: string
-  highlights?: string[]
-  instagramHref?: string
-  ctaLabel?: string
+  metric?: string
 }
 
 const {
   title,
-  subtitle,
   secretTitle,
   domain,
   href,
-  logoUrl,
   imageUrl,
-  badge,
-  highlights,
-  instagramHref,
-  ctaLabel,
+  metric,
 } = Astro.props
 
-const cta = ctaLabel ?? 'Ver proyecto'
 const initial = title[0]
-const allTags = [...(highlights ?? []), ...(badge ? [badge] : [])]
+const titleId = `${title.toLowerCase().replaceAll(' ', '-')}-title`
 ---
 
-<article class="group rounded-3xl border border-gray-200/80 bg-white shadow-sm overflow-hidden transition-all duration-300 hover:border-gray-300 hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)]">
-  <div class="flex flex-col sm:flex-row">
-
-    <!-- Left: content -->
-    <div class="flex-1 min-w-0 p-6 sm:p-7 flex flex-col gap-4">
-
-      <div class="flex items-center gap-3">
-        
-          {logoUrl ? (
-            <img src={logoUrl} alt={`${title} logo`} class="size-10 flex-shrink-0 rounded-sm object-contain" loading="lazy" />
-          ) : (
-            <span class="text-sm font-bold text-gray-400">{initial}</span>
-          )}
-        
-        <div>
-          <p class="text-sm font-bold leading-tight text-gray-900">{title}</p>
-          <p class="text-xs text-gray-400 mt-0.5">{domain}</p>
-        </div>
+<article
+  data-project-card
+  data-revealed="false"
+  aria-labelledby={titleId}
+  class="group relative overflow-hidden rounded-[1.5rem] border border-gray-200/80 shadow-sm outline-none transition-all duration-300 hover:-translate-y-0.5 hover:border-gray-300 hover:shadow-[0_18px_50px_rgba(15,23,42,0.08)] focus-within:ring-2 focus-within:ring-gray-900/20">
+  <a
+    data-project-card-link
+    href={href}
+    target="_blank"
+    rel="noreferrer"
+    class="relative block aspect-[4/3] overflow-hidden bg-[linear-gradient(135deg,#f8fafc_0%,#f9fafb_48%,#eef2ff_100%)] sm:aspect-[16/11]"
+    aria-label={`Ver ${title}`}>
+    {imageUrl ? (
+      <img
+        src={imageUrl}
+        alt={`${title} preview`}
+        class="h-full w-full object-contain p-4 drop-shadow-[0_18px_30px_rgba(15,23,42,0.14)] transition duration-700 group-hover:scale-[1.025] group-focus:scale-[1.025] group-focus-within:scale-[1.025] group-data-[revealed=true]:scale-[1.025] sm:p-6"
+        loading="lazy"
+      />
+    ) : (
+      <div class="flex h-full flex-col items-center justify-center gap-2 bg-gray-50">
+        <span class="text-5xl font-bold text-gray-200">{initial}</span>
+        <span class="text-xs text-gray-300">{domain}</span>
       </div>
-
-      <p class="text-sm leading-[1.7] text-gray-600">{subtitle}</p>
-
-      {allTags.length > 0 && (
-        <div class="flex flex-wrap gap-1.5">
-          {allTags.map((tag) => (
-            <span class="inline-flex items-center rounded-full bg-gray-50 border border-gray-200 px-2.5 py-0.5 text-[11px] font-medium text-gray-500">
-              {tag}
-            </span>
-          ))}
-        </div>
-      )}
-
-      <!-- CTA: desktop only -->
-      <div class="hidden sm:flex items-center gap-2.5 mt-auto pt-1">
-        <a
-          href={href}
-          target="_blank"
-          rel="noreferrer"
-          class="inline-flex items-center gap-1.5 rounded-lg bg-gray-900 px-4 py-2 text-xs font-semibold text-white transition-colors hover:bg-gray-700">
-          {cta}
-          <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M7 17L17 7"/><path d="M7 7h10v10"/>
-          </svg>
-        </a>
-        {instagramHref && (
-          <a
-            href={instagramHref}
-            target="_blank"
-            rel="noreferrer"
-            class="inline-flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white px-4 py-2 text-xs font-medium text-gray-600 transition hover:border-gray-300 hover:bg-gray-50">
-            Instagram
-          </a>
-        )}
-      </div>
-
-      {secretTitle && <h3 class="sr-only">{secretTitle}</h3>}
-    </div>
-
-    <!-- Right: preview panel -->
-    <div class="h-[220px] sm:h-auto sm:w-[44%] sm:shrink-0 flex flex-col bg-gradient-to-br from-gray-50 to-slate-50/80">
-      <div class="flex-1 p-4 sm:p-5 flex flex-col">
-        <div class="flex-1 rounded-xl overflow-hidden border border-gray-200/60 shadow-[0_8px_28px_rgba(0,0,0,0.09),_0_2px_6px_rgba(0,0,0,0.04)] transition-transform duration-500 group-hover:scale-[1.015]">
-          {imageUrl ? (
-            <img
-              src={imageUrl}
-              alt={`${title} preview`}
-              class="h-full w-full object-cover object-top"
-              loading="lazy"
-            />
-          ) : (
-            <div class="h-full flex flex-col items-center justify-center gap-2 bg-gray-50">
-              <span class="text-4xl font-bold text-gray-200">{initial}</span>
-              <span class="text-[10px] text-gray-300">{domain}</span>
-            </div>
-          )}
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- CTA: mobile only -->
-  <div class="sm:hidden flex items-center gap-2.5 px-6 pb-6 pt-1">
-    <a
-      href={href}
-      target="_blank"
-      rel="noreferrer"
-      class="inline-flex items-center gap-1.5 rounded-lg bg-gray-900 px-4 py-2 text-xs font-semibold text-white transition-colors hover:bg-gray-700">
-      {cta}
-      <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M7 17L17 7"/><path d="M7 7h10v10"/>
-      </svg>
-    </a>
-    {instagramHref && (
-      <a
-        href={instagramHref}
-        target="_blank"
-        rel="noreferrer"
-        class="inline-flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white px-4 py-2 text-xs font-medium text-gray-600 transition hover:border-gray-300 hover:bg-gray-50">
-        Instagram
-      </a>
     )}
-  </div>
+
+    {metric && (
+      <div class="pointer-events-none absolute inset-x-4 top-4 flex -translate-y-1 justify-center opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100 group-data-[revealed=true]:translate-y-0 group-data-[revealed=true]:opacity-100 sm:top-5">
+        <span class="rounded-full border border-emerald-200/60 bg-emerald-50/85 px-3 py-1.5 text-[11px] font-medium leading-none text-emerald-700 shadow-[0_8px_20px_rgba(16,185,129,0.1)] backdrop-blur-sm">
+          {metric}
+        </span>
+      </div>
+    )}
+
+    <div class="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-white/70 via-white/35 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100 group-data-[revealed=true]:opacity-100"></div>
+
+    <div class="pointer-events-none absolute inset-x-4 bottom-4 flex translate-y-2 justify-center opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100 group-data-[revealed=true]:translate-y-0 group-data-[revealed=true]:opacity-100 sm:bottom-5">
+      <span class="inline-flex max-w-[82%] min-w-0 items-center gap-2 rounded-full border border-white/70 bg-white/70 px-3 py-2 text-xs font-medium text-gray-900 shadow-[0_10px_24px_rgba(15,23,42,0.07)] backdrop-blur-md sm:px-4">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M7 17L17 7"/><path d="M7 7h10v10"/>
+        </svg>
+        <span class="truncate">{domain}</span>
+      </span>
+    </div>
+  </a>
+
+  <h3 id={titleId} class="sr-only">{title}</h3>
+  {secretTitle && <h3 class="sr-only">{secretTitle}</h3>}
 </article>
+
+<script>
+  const touchProjectCardQuery = window.matchMedia('(hover: none), (pointer: coarse)')
+
+  const closeRevealedProjectCards = (activeCard) => {
+    document.querySelectorAll('[data-project-card][data-revealed="true"]').forEach((card) => {
+      if (card !== activeCard) {
+        card.setAttribute('data-revealed', 'false')
+      }
+    })
+  }
+
+  document.addEventListener('click', (event) => {
+    if (!touchProjectCardQuery.matches || !(event.target instanceof Element)) return
+
+    const link = event.target.closest('[data-project-card-link]')
+
+    if (!link) {
+      closeRevealedProjectCards()
+      return
+    }
+
+    const card = link.closest('[data-project-card]')
+    if (!(card instanceof HTMLElement)) return
+
+    if (card.dataset.revealed !== 'true') {
+      event.preventDefault()
+      closeRevealedProjectCards(card)
+      card.dataset.revealed = 'true'
+    }
+  })
+</script>

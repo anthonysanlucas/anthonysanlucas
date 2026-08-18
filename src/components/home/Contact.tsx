@@ -1,20 +1,27 @@
-import { Mail, MailIcon, SparklesIcon } from 'lucide-react'
+import { ArrowUpRight, MailIcon, MessageCircle, SparklesIcon } from 'lucide-react'
 
 export default function Contact() {
   return (
-    <section className="mt-8 w-full max-w-sm border-t border-gray-200/80 pt-6">
-      <header className="flex items-center gap-2 text-gray-900">
-        <SparklesIcon className="size-4 animate-pulse" />
-        <h3 className="text-sm font-semibold sm:text-base">¿Tienes una idea o proyecto?</h3>
-      </header>
-      <p className="mt-2 text-sm leading-6 text-gray-500 sr-only sm:not-sr-only">
-        Cuéntame qué necesitas y lo hacemos realidad.
-      </p>
+    <section className="mt-6 grid grid-cols-1 gap-3 rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition hover:bg-slate-50 md:grid-cols-[1fr_auto] md:items-center">
+      <div className="flex min-w-0 items-center gap-4">
+        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gray-100 text-gray-700">
+          <SparklesIcon className="size-5" />
+        </div>
 
-      <div className="mt-4 flex flex-col items-start gap-2">
+        <div className="min-w-0">
+          <h3 className="text-sm font-semibold text-gray-900 sm:text-base">
+            ¿Tienes una idea o proyecto?
+          </h3>
+          <p className="mt-1 text-sm leading-6 text-gray-500">
+            Cuéntame qué necesitas y lo hacemos realidad.
+          </p>
+        </div>
+      </div>
+
+      <div className="flex flex-wrap items-center gap-2 md:justify-end">
         <a
           href="mailto:asanlucasc@gmail.com"
-          className="inline-flex gap-2 h-9 items-center justify-center rounded-lg border bg-slate-50 border-gray-300 px-4 text-sm font-medium text-gray-900 transition hover:bg-gray-50 hover:border-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-200">
+          className="inline-flex h-10 items-center justify-center gap-2 rounded-lg border border-gray-300 bg-slate-50 px-4 text-sm font-medium text-gray-900 transition hover:border-gray-400 hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-200">
           <MailIcon className="size-4" />
           <span>Contáctame</span>
         </a>
@@ -23,8 +30,10 @@ export default function Contact() {
           href="https://wa.me/593982694256?text=Hola%20Anthony,%20tengo%20un%20proyecto%20y%20quiero%20desarrollarlo%20contigo."
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-1.5 text-sm text-gray-500 transition hover:text-gray-700">
-          o escríbeme por WhatsApp
+          className="inline-flex h-10 items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-3 text-sm font-medium text-gray-600 transition hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-200">
+          <MessageCircle className="size-4" />
+          <span>WhatsApp</span>
+          <ArrowUpRight className="size-3.5" />
         </a>
       </div>
     </section>

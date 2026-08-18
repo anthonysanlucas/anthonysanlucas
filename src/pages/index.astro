@@ -1,6 +1,7 @@
 ---
 import Base from '@/layouts/Base.astro'
 import Me from '@/components/home/Me.astro'
+import Contact from '@/components/home/Contact'
 import ContactInfo from '@/components/home/ContactInfo'
 import Section from '@/components/Section.astro'
 import ProjectCard from '@/components/ProjectCard.astro'
@@ -19,46 +20,44 @@ const projects = [
   {
     title: 'Memmorable',
     subtitle:
-      'Invitaciones digitales para eventos especiales, con RSVP, ubicación, cuenta regresiva y confirmación por WhatsApp.',
+      'Invitaciones digitales para organizar eventos sin fricción.',
     secretTitle: 'Memmorable - Invitaciones digitales con RSVP para eventos',
     domain: 'memmorable.com',
     href: 'https://memmorable.com',
     logoUrl: '/images/projects/memmorable.svg',
     imageUrl: '/images/projects/memmorable-home.png',
-    highlights: ['RSVP', 'WhatsApp', 'Eventos'],
+    metric: '+300 invitaciones enviadas',
   },
   {
     title: 'Deplatos',
     subtitle:
-      'Menús digitales y links públicos para restaurantes que necesitan una presencia moderna y fácil de compartir.',
+      'Menús digitales y links públicos para restaurantes.',
     secretTitle: 'DePlatos - Menús digitales y links para restaurantes',
     domain: 'deplatos.com',
     logoUrl: '/images/projects/deplatos.svg',
     imageUrl: '/images/projects/deplatos-home.png',
     href: 'https://deplatos.com',
-    highlights: ['Restaurantes', 'QR', 'Menú digital'],
   },
   {
     title: 'Calculadora UG',
     subtitle:
-      'Herramienta académica para estudiantes de la Universidad de Guayaquil que permite simular y calcular sus calificaciones.',
+      'Simula y calcula calificaciones para estudiantes UG.',
     secretTitle: 'Calculadora UG - Simulador de calificaciones para estudiantes',
     domain: 'calculadoraug.com',
     href: 'https://calculadoraug.asanlucas.com',
     logoUrl: '/images/projects/calculadoraug.svg',
     imageUrl: '/images/projects/calculadoraug.png',
-    highlights: ['Estudiantes', 'Notas', 'UG'],
+    metric: '+20k visitas por semestre',
   },
   {
     title: 'Lumo',
     subtitle:
-      'Aplicación de notas para capturar ideas, organizar pendientes y mantener claridad en el trabajo diario.',
+      'Notas y pendientes para mantener claridad diaria.',
     secretTitle: 'Lumo - Aplicación de notas para productividad y claridad',
     domain: 'lumoclarity.com',
     href: 'https://lumoclarity.com',
     logoUrl: '/images/projects/lumo_favicon.svg',
     imageUrl: '/images/projects/lumoclarity-home.png',
-    highlights: ['Notas', 'Productividad', 'Claridad'],
   },
 ]
 ---
@@ -75,8 +74,12 @@ const projects = [
     <Me />
 
     <section class="w-full lg:ml-12">
-       <Section title="Mis Aplicaciones" icon="🚀">
-        <div class="grid grid-cols-1 gap-4">
+       <Section title="Productos con impacto real" icon="🚀">
+        <p class="mb-6 max-w-2xl text-sm leading-7 text-gray-600">
+          Productos digitales que he diseñado, construido y puesto frente a usuarios reales.
+        </p>
+
+        <div class="grid grid-cols-1 gap-7 md:grid-cols-2">
           {projects.map(p => <ProjectCard {...p} />)}
         </div>
       </Section>
@@ -102,6 +105,7 @@ const projects = [
 
       <Section title={'Información de contacto'} icon="📬">
         <ContactInfo client:idle />
+        <Contact />
       </Section>
     </section>
   </section>
