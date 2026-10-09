@@ -19,46 +19,42 @@ const organizations = [
 const projects = [
   {
     title: 'Memmorable',
-    subtitle:
-      'Invitaciones digitales para organizar eventos sin fricción.',
+    subtitle: 'Invitaciones digitales para organizar eventos sin fricción.',
     secretTitle: 'Memmorable - Invitaciones digitales con RSVP para eventos',
     domain: 'memmorable.com',
     href: 'https://memmorable.com',
     logoUrl: '/images/projects/memmorable.svg',
     imageUrl: '/images/projects/memmorable-home.png',
-    metric: '+300 invitaciones enviadas',
+    metric: '+300 invitaciones enviadas'
   },
   {
     title: 'Deplatos',
-    subtitle:
-      'Menús digitales y links públicos para restaurantes.',
+    subtitle: 'Menús digitales y links públicos para restaurantes.',
     secretTitle: 'DePlatos - Menús digitales y links para restaurantes',
     domain: 'deplatos.com',
     logoUrl: '/images/projects/deplatos.svg',
     imageUrl: '/images/projects/deplatos-home.png',
-    href: 'https://deplatos.com',
+    href: 'https://deplatos.com'
   },
   {
     title: 'Calculadora UG',
-    subtitle:
-      'Simula y calcula calificaciones para estudiantes UG.',
+    subtitle: 'Simula y calcula calificaciones para estudiantes Universidad de Guayaquil.',
     secretTitle: 'Calculadora UG - Simulador de calificaciones para estudiantes',
     domain: 'calculadoraug.com',
     href: 'https://calculadoraug.asanlucas.com',
     logoUrl: '/images/projects/calculadoraug.svg',
     imageUrl: '/images/projects/calculadoraug.png',
-    metric: '+20k visitas por semestre',
+    metric: '+20k visitas por semestre'
   },
   {
     title: 'Lumo',
-    subtitle:
-      'Notas y pendientes para mantener claridad diaria.',
+    subtitle: 'Notas y pendientes para mantener claridad diaria.',
     secretTitle: 'Lumo - Aplicación de notas para productividad y claridad',
     domain: 'lumoclarity.com',
     href: 'https://lumoclarity.com',
     logoUrl: '/images/projects/lumo_favicon.svg',
-    imageUrl: '/images/projects/lumoclarity-home.png',
-  },
+    imageUrl: '/images/projects/lumoclarity-home.png'
+  }
 ]
 ---
 
@@ -73,18 +69,8 @@ const projects = [
   <section class="flex flex-col lg:flex-row lg:items-start pb-16">
     <Me />
 
-    <section class="w-full lg:ml-12">
-       <Section title="Productos con impacto real" icon="🚀">
-        <p class="mb-6 max-w-2xl text-sm leading-7 text-gray-600">
-          Productos digitales que he diseñado, construido y puesto frente a usuarios reales.
-        </p>
-
-        <div class="grid grid-cols-1 gap-7 md:grid-cols-2">
-          {projects.map(p => <ProjectCard {...p} />)}
-        </div>
-      </Section>
-      
-      <Section title="Empresas y organizaciones con las que he colaborado" icon="🏢">
+    <section class="w-full min-w-0 lg:ml-12 lg:flex-1">
+      <Section title="Empresas y organizaciones con las que he colaborado">
         <article class="flex flex-wrap items-center justify-start gap-4 sm:gap-6">
           {
             organizations.map(org => (
@@ -103,10 +89,35 @@ const projects = [
         </article>
       </Section>
 
-      <Section title={'Información de contacto'} icon="📬">
+      <Section title="Mis aplicaciones">
+        <div class="relative">
+          <div
+            class="apps-scroller -mx-4 flex snap-x snap-mandatory scroll-px-4 gap-6 overflow-x-auto px-4 pt-1 sm:-mx-6 sm:scroll-px-6 sm:gap-10 sm:px-6"
+            aria-label="Aplicaciones desarrolladas por Anthony San Lucas">
+            {projects.map(p => <ProjectCard {...p} />)}
+          </div>
+          <div
+            aria-hidden="true"
+            class="pointer-events-none absolute inset-y-0 -right-6 hidden w-16 bg-gradient-to-l from-white via-white/80 to-transparent sm:block">
+          </div>
+        </div>
+      </Section>
+
+      <Section title={'Información de contacto'}>
         <ContactInfo client:idle />
         <Contact />
       </Section>
     </section>
   </section>
 </Base>
+
+<style>
+  .apps-scroller {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .apps-scroller::-webkit-scrollbar {
+    display: none;
+  }
+</style>
