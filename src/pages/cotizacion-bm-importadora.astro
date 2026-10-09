@@ -1,0 +1,129 @@
+---
+// Valores en centavos para evitar errores de redondeo al sumar.
+const desarrollo = [
+  {
+    concepto: 'Diseño y estructura visual',
+    valor: 4000,
+    detalle: 'Página principal con enlaces a sus redes sociales y diseño que se adapta a computadoras, tablets y celulares, para generar confianza desde la primera visita.',
+  },
+  {
+    concepto: 'Catálogo y ficha de producto',
+    valor: 5500,
+    detalle: 'Catalogos con filtros, galería de hasta 3 fotos por reloj y botón de WhatsApp con el modelo ya identificado, para que realice la solicitud directamente.',
+  },
+  {
+    concepto: 'Panel privado de administración',
+    valor: 6000,
+    detalle: 'Productos, precios, categorías y fotos editables por su equipo, sin depender de un programador.',
+  },
+  {
+    concepto: 'Base de datos e infraestructura',
+    valor: 2500,
+    detalle: 'Configuración que permite operar sin mensualidad y crecer sin rehacer el sitio.',
+  },
+  {
+    concepto: 'Publicación y capacitación',
+    valor: 2000,
+    detalle: 'Puesta en línea, una ronda de ajustes y explicación del panel.',
+  },
+];
+
+const anual = [
+  {
+    concepto: 'Alojamiento del sitio',
+    valor: 4385,
+    detalle: 'El uso de servidores para mantener el sitio publicado y en línea.',
+  },
+  {
+    concepto: 'Dominio .com',
+    valor: 1485,
+    detalle: 'Dirección propia a nombre del cliente. Sugerido: relojesecuador.com, sujeto a disponibilidad.',
+  },
+];
+
+const suma = (items) => items.reduce((total, item) => total + item.valor, 0);
+const usd = (centavos) => '$' + (centavos / 100).toFixed(2).replace('.', ',');
+
+const subtotalDesarrollo = suma(desarrollo);
+const subtotalAnual = suma(anual);
+const totalPrimerAnio = subtotalDesarrollo + subtotalAnual;
+
+const grupos = [
+  { id: 'desarrollo', titulo: 'Desarrollo', nota: 'Pago único', items: desarrollo, subtotal: subtotalDesarrollo },
+  { id: 'anual', titulo: 'Servicios anuales', nota: 'Se renuevan cada año', items: anual, subtotal: subtotalAnual },
+];
+---
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Propuesta de catálogo web de relojes</title>
+</head>
+<body style="margin:0;background:#f2f4f7;color:#20252d;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.55;">
+  <main style="max-width:740px;margin:28px auto;padding:clamp(22px,5vw,48px);box-sizing:border-box;background:#fff;border:1px solid #e3e7ed;border-radius:12px;">
+    <header style="margin-bottom:20px;">
+      <p style="margin:0 0 10px;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:#52657b;font-weight:bold;">Propuesta comercial · BM Importadora</p>
+      <h1 style="margin:0 0 10px;font-size:clamp(26px,5vw,34px);line-height:1.18;letter-spacing:-.7px;color:#152337;">Catálogo web de relojes</h1>
+      <p style="margin:0;color:#667180;font-size:13px;">Anthony San Lucas · 9 de octubre de 2026</p>
+    </header>
+    <p style="margin:0 0 28px;">Un catálogo web propio donde sus clientes pueden ver cada reloj con fotos y precio desde cualquier dispositivo, computadora o celular, y pedirlo por WhatsApp con un clic. Su equipo actualiza productos, precios y fotos desde un panel privado. Arrancamos el proyecto con <strong>hasta 150 relojes con 3 fotos cada uno</strong> y puede crecer cuando el negocio lo necesite.</p>
+
+    <section aria-labelledby="inversion" style="margin-bottom:28px;">
+      <h2 id="inversion" style="margin:0 0 14px;font-size:18px;color:#152337;">Detalle de la inversión</h2>
+
+      <table style="width:100%;border-collapse:collapse;font-size:14px;">
+        <thead>
+          <tr style="background:#edf1f6;">
+            <th scope="col" style="text-align:left;padding:10px;border:1px solid #dce2e9;width:28%;">Concepto</th>
+            <th scope="col" style="text-align:right;padding:10px;border:1px solid #dce2e9;width:16%;">Valor USD</th>
+            <th scope="col" style="text-align:left;padding:10px;border:1px solid #dce2e9;">Descripción</th>
+          </tr>
+        </thead>
+        {grupos.map((grupo) => (
+          <tbody>
+            <tr>
+              <th scope="colgroup" colspan="3" style="text-align:left;padding:8px 10px;border:1px solid #dce2e9;background:#f7f9fc;font-size:13px;color:#152337;">{grupo.titulo} <span style="font-weight:normal;color:#526070;">· {grupo.nota}</span></th>
+            </tr>
+            {grupo.items.map((item) => (
+              <tr>
+                <td style="padding:10px;border:1px solid #dce2e9;">{item.concepto}</td>
+                <td style="padding:10px;border:1px solid #dce2e9;text-align:right;white-space:nowrap;">{usd(item.valor)}</td>
+                <td style="padding:10px;border:1px solid #dce2e9;">{item.detalle}</td>
+              </tr>
+            ))}
+            <tr>
+              <th scope="row" style="padding:10px;border:1px solid #dce2e9;text-align:left;font-weight:normal;">Subtotal</th>
+              <td style="padding:10px;border:1px solid #dce2e9;text-align:right;font-weight:bold;white-space:nowrap;color:#152337;">{usd(grupo.subtotal)}</td>
+              <td style="padding:10px;border:1px solid #dce2e9;"></td>
+            </tr>
+          </tbody>
+        ))}      
+        <tfoot>
+          <tr style="background:#edf1f6;">
+            <th scope="row" style="padding:11px 10px;border:1px solid #dce2e9;text-align:left;">Total primer año</th>
+            <td style="padding:11px 10px;border:1px solid #dce2e9;text-align:right;font-weight:bold;white-space:nowrap;color:#152337;">{usd(totalPrimerAnio)}</td>
+            <td style="padding:11px 10px;border:1px solid #dce2e9;">Desde el segundo año: {usd(subtotalAnual)} al año.</td>
+          </tr>
+        </tfoot>
+      </table>
+    </section>
+
+    <section aria-labelledby="crecimiento" style="margin-bottom:24px;">
+      <h2 id="crecimiento" style="margin:0 0 8px;font-size:18px;color:#152337;">Preparado para crecer</h2>
+      <p style="margin:0;">El sitio admite más productos, fotos y categorías sin rehacerlo. Si el catálogo supera las cuotas gratuitas, o se necesitan funciones como carrito o pagos en línea, se cotizará antes de activarlo.</p>
+    </section>
+
+    <section aria-labelledby="entrega" style="margin-bottom:24px;">
+      <h2 id="entrega" style="margin:0 0 8px;font-size:18px;color:#152337;">Entrega y pago</h2>
+      <p style="margin:0;">Entrega en <strong>10 días laborables</strong> desde el anticipo y la recepción del contenido. Desarrollo y alojamiento del primer año: <strong>50 % al iniciar y 50 % al entregar</strong>; el dominio se paga al registrarlo.</p>
+    </section>
+
+    <footer style="padding-top:16px;border-top:1px solid #e3e7ed;font-size:12px;line-height:1.6;color:#606b79;">
+      <p style="margin:0;">Propuesta válida por 15 días. No incluye carrito, cobros en línea, pedidos o facturación.</p>
+    </footer>
+  </main>
+</body>
+</html>
