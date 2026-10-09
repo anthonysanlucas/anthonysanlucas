@@ -6,33 +6,47 @@ interface Props {
 }
 
 const { titlePage, descriptionPage, currentUrl } = Astro.props
+const siteUrl = 'https://asanlucas.com'
+const profileImage = `${siteUrl}/images/anthonysanlucas-software-ti-desarrollador-programador.webp`
 ---
 
 <!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <style is:global>
+      :root {
+        --color-accent: #0055b3;
+      }
+    </style>
+    <link
+      rel="icon"
+      type="image/webp"
+      href="/images/anthonysanlucas-software-ti-desarrollador-programador.webp"
+    />
+    <link rel="apple-touch-icon" href="/images/anthonysanlucas-software-ti-desarrollador-programador.webp" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{titlePage}</title>
     <meta name="title" content={titlePage} />
     <meta name="description" content={descriptionPage} />
+    <link rel="canonical" href={`${siteUrl}/${currentUrl ?? ''}`} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={`https://asanlucas.com/${currentUrl ?? ''}`} />
+    <meta property="og:locale" content="es_EC" />
+    <meta property="og:site_name" content="Anthony San Lucas" />
+    <meta property="og:url" content={`${siteUrl}/${currentUrl ?? ''}`} />
     <meta property="og:title" content={titlePage} />
     <meta property="og:description" content={descriptionPage} />
-    <meta
-      property="og:image"
-      content="https://i.postimg.cc/K8K38fMw/anthonysanlucas-software-developer.png"
-    />
+    <meta property="og:image" content={profileImage} />
+    <meta property="og:image:type" content="image/webp" />
+    <meta property="og:image:width" content="1199" />
+    <meta property="og:image:height" content="1471" />
+    <meta property="og:image:alt" content="Foto de Anthony San Lucas" />
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={`https://asanlucas.com/${currentUrl ?? ''}`} />
+    <meta property="twitter:url" content={`${siteUrl}/${currentUrl ?? ''}`} />
     <meta property="twitter:title" content={titlePage} />
     <meta property="twitter:description" content={descriptionPage} />
-    <meta
-      property="twitter:image"
-      content="https://i.postimg.cc/K8K38fMw/anthonysanlucas-software-developer.png"
-    />
+    <meta property="twitter:image" content={profileImage} />
+    <meta property="twitter:image:alt" content="Foto de Anthony San Lucas" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -50,15 +64,3 @@ const { titlePage, descriptionPage, currentUrl } = Astro.props
     </main>
   </body>
 </html>
-
-<script>
-  const TITLE_PAGE = document.title
-
-  window.onblur = () => {
-    document.title = 'Hasta pronto 👋'
-  }
-
-  window.onfocus = () => {
-    document.title = TITLE_PAGE
-  }
-</script>
